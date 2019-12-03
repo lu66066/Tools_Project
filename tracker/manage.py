@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from app.models import Sighting
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tracker.settings')

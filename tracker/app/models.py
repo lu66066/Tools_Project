@@ -12,7 +12,7 @@ class Sighting(models.Model):
             (AM,'AM'),
             (PM,'PM'),)
     Shift = models.CharField(max_length = 2,choices = Shift_Choices,)
-    Date =  models.DateField(help_text = _('Date of the sighting happened'),)
+    Date =  models.CharField(max_length = 20,help_text = _('Date of the sighting happened'),)
     Hectare_Squirrel_Number = models.IntegerField(blank = True, null = True)
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
@@ -33,6 +33,7 @@ class Sighting(models.Model):
             ('Null',''),)
     Primary_Fur_Color = models.CharField(max_length = 20, choices = Primary_Color_Choices, default = 'Null',)
     Highlight_Fur_Color = models.CharField(max_length = 50,)
+    Combination = models.CharField(max_length = 70,default = 'Null',)
     Color_Notes = models.CharField(max_length = 500,)
     GROUND_PLANE = 'Ground Plane'
     ABOVE_GROUND = 'Above Ground'
