@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Pet
+from .models import Sighting
 # Create your views here.
 def  all_squirrel_sightings(request):
     sightings=Sighting.objects.all()
