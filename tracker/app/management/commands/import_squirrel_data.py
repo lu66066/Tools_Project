@@ -8,7 +8,7 @@ class Command(BaseCommand):
         parser.add_argument('path', type = str)
     
     def handle(self,*args,**kwargs):
-        import csv datetime
+        import csv, datetime
         def convert(string):
             if string == 'FALSE':
                 return False
