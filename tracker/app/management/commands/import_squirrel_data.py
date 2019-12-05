@@ -8,6 +8,7 @@ class Command(BaseCommand):
         parser.add_argument('path', type = str)
     
     def handle(self,*args,**kwargs):
+        import csv datetime
         def convert(string):
             if string == 'FALSE':
                 return False
@@ -16,8 +17,9 @@ class Command(BaseCommand):
             if string =='FALSE':
                 return 0
             else: return int(string or 0)
+        def date_convert(string):
+            return string[4:]+'-'+string[0:2]+'-'+string[2:4]
         path = kwargs['path']
-        import csv
         with open(path) as f:
             reader = csv.reader(f)
             next(reader)
@@ -29,7 +31,7 @@ class Command(BaseCommand):
                  Unique_Squirrel_ID=row[2],
                  Hectare=row[3],
                  Shift=row[4],
-                 Date=row[5],
+                 Date=date_convert(row[5]),
                  Hectare_Squirrel_Number=int(row[6] or 0),
                  Age=row[7],
                  Primary_Fur_Color=row[8],
