@@ -21,6 +21,7 @@ class Command(BaseCommand):
         with open(path) as f:
             reader = csv.reader(f)
             next(reader)
+            Sighting.objects.all().delete()
             for row in reader:
                 _, created = Sighting.objects.get_or_create(
                  X=float(row[0] or 0),
