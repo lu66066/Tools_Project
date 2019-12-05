@@ -10,7 +10,7 @@ def  all_squirrel_sightings(request):
     sightings=Sighting.objects.all()
     context={
             'sightings':sightings}
-    return render(request, 'app/all.html',context) 
+    return render(request, 'sightings/all.html',context) 
 
 def sighting_details(request,Unique_Squirrel_ID):
     sight=Sighting.objects.get(id=Unique_Squirrel_ID)
@@ -22,7 +22,7 @@ def edit_sighting(request,Unique_Squirrel_ID):
         form = SightingForm(request.POST,instance=sighting)
         if form.is_valid():
             form.save()
-            return redirect('/app/{Unique_Squirrel_ID}')
+            return redirect('/sightings/{Unique_Squirrel_ID}')
 
     else: 
         form=SightingForm(instance=sighting)
@@ -31,6 +31,6 @@ def edit_sighting(request,Unique_Squirrel_ID):
             'form':form,
     }
 
-    return render(request,'app/edit.html',context)
+    return render(request,'sightings/edit.html',context)
 
 

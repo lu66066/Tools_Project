@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from app.models import Sighting
+from sightings.models import Sighting
 
 class Command(BaseCommand):
     help = 'import data from path'
