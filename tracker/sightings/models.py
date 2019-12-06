@@ -56,4 +56,7 @@ class Sighting(models.Model):
     Indifferent = models.BooleanField(default=False)
     Runs_From = models.BooleanField(default=False)
     Other_Interactions = models.CharField(max_length=500,blank=True)
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID
 # Create your models here.
