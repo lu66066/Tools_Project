@@ -13,11 +13,11 @@ def  all_squirrel_sightings(request):
     return render(request, 'sightings/all.html',context) 
 
 def sighting_details(request,Unique_Squirrel_ID):
-    sight=Sighting.objects.get(id=Unique_Squirrel_ID)
+    sight=Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def edit_sighting(request,Unique_Squirrel_ID):
-    sighting=Sighting.objects.get(id=Unique_Squirrel_ID)
+    sighting=Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     if request.method == 'POST':
         form = SightingForm(request.POST,instance=sighting)
         if form.is_valid():

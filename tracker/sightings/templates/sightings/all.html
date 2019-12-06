@@ -1,7 +1,7 @@
 <ul>
   {% for i in sightings %}    
 	<li>
-	<a href = "{% url 'edit' i.id %}">{{i.Unique_Squirrel_ID}}</a>
+	<a href = "{% url 'edit' i.Unique_Squirrel_ID %}">{{i.Unique_Squirrel_ID}}</a>
 	</li>
 
   {%endfor%}
