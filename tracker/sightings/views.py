@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Sighting
@@ -12,9 +12,21 @@ def  all_squirrel_sightings(request):
             'sightings':sightings}
     return render(request, 'sightings/all.html',context) 
 
-def sighting_details(request,Unique_Squirrel_ID):
-    sight=Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
-    return HttpResponse("Hello, world. You're at the polls index.")
+def add(request):
+    if request.method == 'POST':
+        form = SightingForm(request.POST)
+        if form.is_valid():
+            new_sighting=form.save()
+            return HttpResponseRedirect('/sightings/')
+
+    else:
+        form=SightingForm()
+
+    context={
+            'form':form,
+    }
+
+    return render(request,'sightings/add.html',context)
 
 def edit_sighting(request,Unique_Squirrel_ID):
     sighting=Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
@@ -32,5 +44,4 @@ def edit_sighting(request,Unique_Squirrel_ID):
     }
 
     return render(request,'sightings/edit.html',context)
-
 
