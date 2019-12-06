@@ -1,0 +1,77 @@
+<html>
+  <body>
+    <div>
+      <h2>Stats of Latitude</h2>
+      <table border="4">
+        <tr>
+          <th>Max_lat</th>
+          <th>Min_lat</th>
+	  <th>Avg_lat</th>
+        </tr>
+        {% for key,values in Max_lat.items %}
+        <td>{{ values }}</td>
+        {% endfor %}
+      </table>
+    </div>
+    <div>
+      <h2>Stats of Longitude</h2>
+      <table border="4">
+        <tr>
+          <th>Max_lon</th>
+          <th>Min_lon</th>
+	  <th>Avg_lon</th>
+        </tr>
+        {% for key,values in Max_lon.items %}
+        <td>{{ values }}</td>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div>
+      <h2>Age Stats</h2>
+      <table border="4">
+        <tr>
+          <th>Age</th>
+          <th>Count</th>
+        </tr>
+	{% for item in age %}
+          {% for key, values in item.items %}
+          <td>{{ values }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div>
+      <h2>Moans Stats</h2>
+      <table border="4">
+        <tr>
+          <th>Moan</th>
+          <th>Count</th>
+        </tr>
+        {% for item in moans %}
+          {% for key, values in item.items %}
+          <td>{{ values }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div>
+      <h2>Highlight_Fur_Color Stats</h2>
+      <table border="4">
+        <tr>
+          <th>Highlight_Fur_Color</th>
+          <th>Count</th>
+        </tr>
+	{% for item in Highlight_Fur_Color %}
+	  {% for key, values in item.items %}
+	  <td>{{ values }}</td>
+	  {% endfor %}
+          </tr>
+	{% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
+
