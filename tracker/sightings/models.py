@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import gettext as _
 ## Model Creation.
 class Sighting(models.Model):
     X = models.FloatField(blank=True,help_text='Using decimal degrees for Longitude.',)
