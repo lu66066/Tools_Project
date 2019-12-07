@@ -1,1 +1,2 @@
 Django==2.2.7
+django-leaflet==0.26.0
